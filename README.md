@@ -153,7 +153,7 @@ Core based on work of @mustafaibrahim989
 Notes
 ============
 
-Designed for iOS 8+.
+Designed for iOS 13+.
 
 ## License
 
