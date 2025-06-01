@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05214F011C55226B00F57DA5 /* assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05214F001C55226B00F57DA5 /* assets.bundle */; };
 		05B258651C54EC67002F01FA /* ADCountryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B258641C54EC67002F01FA /* ADCountryPicker.swift */; };
 		2453A6C81EADC09C00C81AB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453A6C51EADC09C00C81AB1 /* AppDelegate.swift */; };
 		2453A6CA1EADC09C00C81AB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453A6C71EADC09C00C81AB1 /* ViewController.swift */; };
@@ -19,7 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05214F001C55226B00F57DA5 /* assets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = assets.bundle; path = Source/assets.bundle; sourceTree = "<group>"; };
 		05B2583C1C54EA80002F01FA /* ADCountryPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADCountryPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B258641C54EC67002F01FA /* ADCountryPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ADCountryPicker.swift; path = Source/ADCountryPicker.swift; sourceTree = "<group>"; };
 		2453A6C51EADC09C00C81AB1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ADCountryPicker/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -77,7 +75,6 @@
 			children = (
 				245E4ECE1EA9BF250067AF5F /* CallingCodes.plist */,
 				05B258641C54EC67002F01FA /* ADCountryPicker.swift */,
-				05214F001C55226B00F57DA5 /* assets.bundle */,
 				245E4ED01EA9C9110067AF5F /* ADCountry.swift */,
 			);
 			name = Source;
@@ -144,7 +141,6 @@
 				2453A6D61EADC0BA00C81AB1 /* LaunchScreen.storyboard in Resources */,
 				2453A6D91EADC0D400C81AB1 /* Main.storyboard in Resources */,
 				2453A6D11EADC0A600C81AB1 /* Assets.xcassets in Resources */,
-				05214F011C55226B00F57DA5 /* assets.bundle in Resources */,
 				245E4ECF1EA9BF250067AF5F /* CallingCodes.plist in Resources */,
 			);
 		};

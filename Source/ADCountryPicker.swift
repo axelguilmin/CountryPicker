@@ -149,17 +149,20 @@ open class ADCountryPicker: UITableViewController {
     open var closeButtonTintColor = UIColor.black
     
     /// The font of the country name list
-    open var font = UIFont(name: "Helvetica Neue", size: 15)
-    
-    /// The height of the flags shown. Default to 40px
-    open var flagHeight = 40
-    
+    open var font = UIFont.systemFont(ofSize: 15)
+
+    /// The font of the flags shown. Defaults to 35pt
+    open var fontFlag = UIFont.systemFont(ofSize: 35)
+
     /// Flag to indicate if the navigation bar should be hidden when search becomes active. Defaults to true
     open var hidesNavigationBarWhenPresentingSearch = true
     
     /// The background color of the searchbar. Defaults to lightGray
     open var searchBarBackgroundColor = UIColor.lightGray
-    
+
+    /// The SF symbol image name of the close icon. Defaults to `xmark`
+    open var closeIconImageName = "xmark"
+
     convenience public init(completionHandler: @escaping ((String, String) -> ())) {
         self.init()
         self.didSelectCountryClosure = completionHandler
@@ -176,11 +179,8 @@ open class ADCountryPicker: UITableViewController {
         definesPresentationContext = true
         
         if self.presentingViewController != nil {
-            
-            let bundle = "assets.bundle/"
-            let closeButton = UIBarButtonItem(image: UIImage(named: bundle + "close_icon" + ".png",
-                                                             in: Bundle(for: ADCountryPicker.self),
-                                                             compatibleWith: nil),
+            let image = UIImage(systemName: closeIconImageName)
+            let closeButton = UIBarButtonItem(image: image,
                                               style: .plain,
                                               target: self,
                                               action: #selector(self.dismissView))
@@ -191,6 +191,7 @@ open class ADCountryPicker: UITableViewController {
         
         tableView.sectionIndexColor = alphabetScrollBarTintColor
         tableView.sectionIndexBackgroundColor = alphabetScrollBarBackgroundColor
+        tableView.rowHeight = max(font.lineHeight, fontFlag.lineHeight)
         tableView.separatorColor = UIColor(red: (222)/(255.0),
                                            green: (222)/(255.0),
                                            blue: (222)/(255.0),
@@ -258,17 +259,20 @@ open class ADCountryPicker: UITableViewController {
     /// Returns the country flag for the given country code
     ///
     /// - Parameter countryCode: ISO code of country to get flag for
-    /// - Returns: the UIImage for given country code if it exists
-    public func getFlag(countryCode: String) -> UIImage? {
-        let countries = self.getCountry(countryCode)
-        
+    /// - Returns: the emoji for given country code
+    public func getFlag(countryCode: String) -> String {
+        let countries = getCountry(countryCode)
         if countries.count > 0 {
-            let bundle = "assets.bundle/"
-            return UIImage(named: bundle + countries.first!.code.uppercased() + ".png",
-                           in: Bundle(for: ADCountryPicker.self), compatibleWith: nil)
+            let base: UInt32 = 127397
+            var emoji = ""
+            for scalar in countryCode.unicodeScalars {
+                emoji.unicodeScalars.append(UnicodeScalar(base + scalar.value)!)
+            }
+            return String(emoji)
         }
         else {
-            return nil
+            assertionFailure("Unknown country code: \(countryCode)")
+            return "🏳️"
         }
     }
     
@@ -354,20 +358,25 @@ extension ADCountryPicker {
         } else {
             cell.textLabel?.text = country.name
         }
-        
-        let bundle = "assets.bundle/"
-        
+
         if self.showFlags == true {
-            let image = UIImage(named: bundle + country.code.uppercased() + ".png", in: Bundle(for: ADCountryPicker.self), compatibleWith: nil)
-            if (image != nil) {
-                cell.imageView?.image = image?.fitImage(size: CGSize(width:self.flagHeight, height:flagHeight))
-            }
-            else {
-                cell.imageView?.image = UIImage.init(color: .lightGray,
-                                                     size: CGSize(width:CGFloat(flagHeight), height:CGFloat(flagHeight)/CGFloat(1.5)))?.fitImage(size: CGSize(width:CGFloat(self.flagHeight), height:CGFloat(flagHeight)/CGFloat(1.5)))
-            }
+            let flag = getFlag(countryCode: country.code) + " "
+            let countryName = cell.textLabel?.text ?? ""
+            let text = flag + countryName
+
+            let string = NSMutableAttributedString(string: text)
+            let rangeFlag = NSRange(text.range(of: flag)!, in: text)
+            let rangeCountryName = NSRange(text.range(of: countryName)!, in: text)
+
+            string.beginEditing()
+            string.addAttribute(.font, value: font as Any, range: rangeCountryName)
+            string.addAttribute(.font, value: fontFlag as Any, range: rangeFlag)
+            string.addAttribute(.baselineOffset, value: (fontFlag.xHeight - font.xHeight) * 0.5, range: rangeCountryName)
+            string.endEditing()
+
+            cell.textLabel?.attributedText = string
         }
-        
+
         return cell
     }
     
@@ -445,37 +454,5 @@ extension ADCountryPicker: UISearchResultsUpdating {
             searchController.searchBar.showsCancelButton = false
         }
         tableView.reloadData()
-    }
-}
-
-// MARK: - UIImage extensions
-
-extension UIImage {
-    func fitImage(size: CGSize) -> UIImage? {
-        let widthRatio = size.width / self.size.width
-        let heightRatio = size.height / self.size.height
-        let ratio = min(widthRatio, heightRatio)
-        
-        let imageWidth = self.size.width * ratio
-        let imageHeight = self.size.height * ratio
-        
-        UIGraphicsBeginImageContextWithOptions(CGSize(width:imageWidth, height:imageHeight), false, 0.0)
-        self.draw(in: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
-        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return resizedImage
-    }
-    
-    public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
-        let rect = CGRect(origin: .zero, size: size)
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
-        color.setFill()
-        UIRectFill(rect)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        guard let cgImage = image?.cgImage else { return nil }
-        self.init(cgImage: cgImage)
     }
 }
