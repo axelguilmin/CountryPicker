@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 90;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -35,10 +35,8 @@
 /* Begin PBXFrameworksBuildPhase section */
 		05B258391C54EA80002F01FA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -98,8 +96,6 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			name = ADCountryPicker;
 			productName = MICountryPicker;
 			productReference = 05B2583C1C54EA80002F01FA /* ADCountryPicker.app */;
@@ -123,14 +119,15 @@
 				};
 			};
 			buildConfigurationList = 05B258371C54EA80002F01FA /* Build configuration list for PBXProject "ADCountryPicker" */;
-			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
 			mainGroup = 05B258331C54EA80002F01FA;
+			preferredProjectObjectVersion = 90;
 			productRefGroup = 05B2583D1C54EA80002F01FA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -143,7 +140,6 @@
 /* Begin PBXResourcesBuildPhase section */
 		05B2583A1C54EA80002F01FA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				2453A6D61EADC0BA00C81AB1 /* LaunchScreen.storyboard in Resources */,
 				2453A6D91EADC0D400C81AB1 /* Main.storyboard in Resources */,
@@ -151,21 +147,18 @@
 				05214F011C55226B00F57DA5 /* assets.bundle in Resources */,
 				245E4ECF1EA9BF250067AF5F /* CallingCodes.plist in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		05B258381C54EA80002F01FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				2453A6C81EADC09C00C81AB1 /* AppDelegate.swift in Sources */,
 				05B258651C54EC67002F01FA /* ADCountryPicker.swift in Sources */,
 				2453A6CA1EADC09C00C81AB1 /* ViewController.swift in Sources */,
 				245E4ED11EA9C9110067AF5F /* ADCountry.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -189,7 +182,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		05B258571C54EA80002F01FA /* Debug */ = {
+		05B258571C54EA80002F01FA /* Debug configuration for PBXProject "ADCountryPicker" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -235,7 +228,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -245,7 +238,7 @@
 			};
 			name = Debug;
 		};
-		05B258581C54EA80002F01FA /* Release */ = {
+		05B258581C54EA80002F01FA /* Release configuration for PBXProject "ADCountryPicker" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -285,36 +278,41 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		05B2585A1C54EA80002F01FA /* Debug */ = {
+		05B2585A1C54EA80002F01FA /* Debug configuration for PBXNativeTarget "ADCountryPicker" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ADCountryPicker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.diman.ADCountryPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
-		05B2585B1C54EA80002F01FA /* Release */ = {
+		05B2585B1C54EA80002F01FA /* Release configuration for PBXNativeTarget "ADCountryPicker" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ADCountryPicker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.diman.ADCountryPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -327,19 +325,17 @@
 		05B258371C54EA80002F01FA /* Build configuration list for PBXProject "ADCountryPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				05B258571C54EA80002F01FA /* Debug */,
-				05B258581C54EA80002F01FA /* Release */,
+				05B258571C54EA80002F01FA /* Debug configuration for PBXProject "ADCountryPicker" */,
+				05B258581C54EA80002F01FA /* Release configuration for PBXProject "ADCountryPicker" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		05B258591C54EA80002F01FA /* Build configuration list for PBXNativeTarget "ADCountryPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				05B2585A1C54EA80002F01FA /* Debug */,
-				05B2585B1C54EA80002F01FA /* Release */,
+				05B2585A1C54EA80002F01FA /* Debug configuration for PBXNativeTarget "ADCountryPicker" */,
+				05B2585B1C54EA80002F01FA /* Release configuration for PBXNativeTarget "ADCountryPicker" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
