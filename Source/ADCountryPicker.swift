@@ -31,8 +31,6 @@ struct Section {
 
 open class ADCountryPicker: UITableViewController {
 
-    private var customCountriesCode: [String]?
-
     fileprivate lazy var CallingCodes = { () -> [[String: String]] in
         let resourceBundle = Bundle(for: ADCountryPicker.classForCoder())
         guard let path = resourceBundle.path(forResource: "CallingCodes", ofType: "plist") else { return [] }
@@ -41,19 +39,22 @@ open class ADCountryPicker: UITableViewController {
     fileprivate var searchController: UISearchController!
     fileprivate var filteredList = [ADCountry]()
     fileprivate var unsortedCountries : [ADCountry] {
-        let locale = Locale.current
+        let locale = Locale.current as NSLocale
         var unsortedCountries = [ADCountry]()
-        let countriesCodes = customCountriesCode == nil ? Locale.isoRegionCodes : customCountriesCode!
 
         for countryCode in countriesCodes {
-            let displayName = (locale as NSLocale).displayName(forKey: NSLocale.Key.countryCode, value: countryCode)
-            let countryData = CallingCodes.filter { $0["code"] == countryCode }
+            guard let displayName = locale.displayName(forKey: .countryCode, value: countryCode) else {
+                print("[CountryPicker] Error: Invalid country code \(countryCode)")
+                continue
+            }
+
+            let countryData = CallingCodes.first { $0["code"] == countryCode }
             let country: ADCountry
 
-            if countryData.count > 0, let dialCode = countryData[0]["dial_code"] {
-                country = ADCountry(name: displayName!, code: countryCode, dialCode: dialCode)
+            if let dialCode = countryData?["dial_code"] {
+                country = ADCountry(name: displayName, code: countryCode, dialCode: dialCode)
             } else {
-                country = ADCountry(name: displayName!, code: countryCode)
+                country = ADCountry(name: displayName, code: countryCode)
             }
             unsortedCountries.append(country)
         }
@@ -80,11 +81,13 @@ open class ADCountryPicker: UITableViewController {
             sections.append(Section())
         }
 
-
         // Put each country in a section
         for country in countries {
             sections[country.section!].addCountry(country)
         }
+
+        // Remove empty sections
+        sections.removeAll { $0.countries.isEmpty }
 
         // Sort each section
         for section in sections {
@@ -126,6 +129,9 @@ open class ADCountryPicker: UITableViewController {
 
     /// Closure which returns country name, ISO code, calling codes
     open var didSelectCountryWithCallingCodeClosure: ((String, String, String) -> ())?
+
+    /// Countries to show, defaults to `Locale.isoRegionCodes`
+    open var countriesCodes: [String] = Locale.isoRegionCodes
 
     /// Flag to indicate if calling codes should be shown next to the country name. Defaults to false.
     open var showCallingCodes = false
