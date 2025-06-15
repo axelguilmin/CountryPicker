@@ -240,23 +240,13 @@ open class ADCountryPicker: UITableViewController {
         return filteredList
     }
 
-    fileprivate func getCountry(_ code: String) -> [ADCountry] {
-        filteredList.removeAll()
-
-        sections.forEach { section in
-            section.countries.forEach { country in
-                if country.code.count >= code.count {
-                    let result = country.code.compare(code,
-                                                      options: [.caseInsensitive, .diacriticInsensitive],
-                                                      range: code.startIndex ..< code.endIndex)
-                    if result == .orderedSame {
-                        filteredList.append(country)
-                    }
-                }
-            }
+    fileprivate func getCountry(_ code: String) -> ADCountry? {
+        unsortedCountries.first {
+            let result = $0.code.compare(code,
+                                         options: [.caseInsensitive, .diacriticInsensitive],
+                                         range: code.startIndex ..< code.endIndex)
+            return result == .orderedSame
         }
-
-        return filteredList
     }
 
 
@@ -267,8 +257,7 @@ open class ADCountryPicker: UITableViewController {
     /// - Parameter countryCode: ISO code of country to get flag for
     /// - Returns: the emoji for given country code
     public func getFlag(countryCode: String) -> String {
-        let countries = getCountry(countryCode)
-        if countries.count > 0 {
+        if getCountry(countryCode) != nil {
             let base: UInt32 = 127397
             var emoji = ""
             for scalar in countryCode.unicodeScalars {
@@ -286,13 +275,7 @@ open class ADCountryPicker: UITableViewController {
     /// - Parameter countryCode: ISO code of country to get dialing code for
     /// - Returns: the dial code for given country code if it exists
     public func getDialCode(countryCode: String) -> String? {
-        let countries = getCountry(countryCode)
-
-        if countries.count > 0 {
-            return countries.first?.dialCode
-        } else {
-            return nil
-        }
+        getCountry(countryCode)?.dialCode
     }
 
     /// Returns the country name for the given country code
@@ -300,13 +283,7 @@ open class ADCountryPicker: UITableViewController {
     /// - Parameter countryCode: ISO code of country to get dialing code for
     /// - Returns: the country name for given country code if it exists
     public func getCountryName(countryCode: String) -> String? {
-        let countries = getCountry(countryCode)
-
-        if countries.count > 0 {
-            return countries.first?.name
-        } else {
-            return nil
-        }
+        getCountry(countryCode)?.name
     }
 }
 
