@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  ADCountryPicker
+//  CountryPicker
 //
 //  Created by Amila on 21/4/17.
 //  Copyright © 2017 Amila Diman. All rights reserved.

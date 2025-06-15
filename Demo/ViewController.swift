@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  ADCountryPicker
+//  CountryPicker
 //
 //  Created by Amila on 21/4/17.
 //  Copyright © 2017 Amila Diman. All rights reserved.
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     @IBAction func openPickerAction(_ sender: AnyObject) {
         
-        let picker = ADCountryPicker(style: .grouped)
+        let picker = CountryPicker(style: .grouped)
         picker.delegate = self
 
         // Display calling codes
@@ -39,9 +39,9 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: ADCountryPickerDelegate {
+extension ViewController: CountryPickerDelegate {
     
-    func countryPicker(_ picker: ADCountryPicker, didSelectCountryWithName name: String, code: String, dialCode: String) {
+    func countryPicker(_ picker: CountryPicker, didSelectCountryWithName name: String, code: String, dialCode: String) {
         _ = picker.navigationController?.popToRootViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
         countryNameLabel.text = name

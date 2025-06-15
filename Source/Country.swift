@@ -1,6 +1,6 @@
 //
-//  ADCountry.swift
-//  ADCountryPicker
+//  Country.swift
+//  CountryPicker
 //
 //  Created by Amila on 21/04/2017.
 //  Copyright © 2017 Amila Diman. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ADCountry: NSObject {
+class Country: NSObject {
     @objc let name: String
     let code: String
     var section: Int?

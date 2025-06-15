@@ -7,27 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05B258651C54EC67002F01FA /* ADCountryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B258641C54EC67002F01FA /* ADCountryPicker.swift */; };
-		2453A6C81EADC09C00C81AB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453A6C51EADC09C00C81AB1 /* AppDelegate.swift */; };
-		2453A6CA1EADC09C00C81AB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2453A6C71EADC09C00C81AB1 /* ViewController.swift */; };
-		2453A6D11EADC0A600C81AB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2453A6CB1EADC0A600C81AB1 /* Assets.xcassets */; };
-		2453A6D61EADC0BA00C81AB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2453A6D41EADC0BA00C81AB1 /* LaunchScreen.storyboard */; };
-		2453A6D91EADC0D400C81AB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2453A6D71EADC0D400C81AB1 /* Main.storyboard */; };
-		245E4ECF1EA9BF250067AF5F /* CallingCodes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 245E4ECE1EA9BF250067AF5F /* CallingCodes.plist */; };
-		245E4ED11EA9C9110067AF5F /* ADCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245E4ED01EA9C9110067AF5F /* ADCountry.swift */; };
+		05B258651C54EC67002F01FA /* CountryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B258641C54EC67002F01FA /* CountryPicker.swift */; };
+		245E4ED11EA9C9110067AF5F /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245E4ED01EA9C9110067AF5F /* Country.swift */; };
+		7776B3C12E019E0D00CBF478 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77F9A14E2E019D35007213BE /* Assets.xcassets */; };
+		7776B3C32E019E1600CBF478 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77F9A1512E019D35007213BE /* LaunchScreen.storyboard */; };
+		7776B3C42E019E1B00CBF478 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77F9A1532E019D35007213BE /* Main.storyboard */; };
+		7776B3C52E019E1F00CBF478 /* CallingCodes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 245E4ECE1EA9BF250067AF5F /* CallingCodes.plist */; };
+		77F9A15A2E019D35007213BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F9A14D2E019D35007213BE /* AppDelegate.swift */; };
+		77F9A15B2E019D35007213BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F9A1542E019D35007213BE /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05B2583C1C54EA80002F01FA /* ADCountryPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADCountryPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		05B258641C54EC67002F01FA /* ADCountryPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ADCountryPicker.swift; path = Source/ADCountryPicker.swift; sourceTree = "<group>"; };
-		2453A6C51EADC09C00C81AB1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ADCountryPicker/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
-		2453A6C61EADC09C00C81AB1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ADCountryPicker/Info.plist; sourceTree = SOURCE_ROOT; };
-		2453A6C71EADC09C00C81AB1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ADCountryPicker/ViewController.swift; sourceTree = SOURCE_ROOT; };
-		2453A6CB1EADC0A600C81AB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ADCountryPicker/Assets.xcassets; sourceTree = SOURCE_ROOT; };
-		2453A6D51EADC0BA00C81AB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ADCountryPicker/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
-		2453A6D81EADC0D400C81AB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ADCountryPicker/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		05B2583C1C54EA80002F01FA /* CountryPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountryPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B258641C54EC67002F01FA /* CountryPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountryPicker.swift; path = Source/CountryPicker.swift; sourceTree = "<group>"; };
 		245E4ECE1EA9BF250067AF5F /* CallingCodes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = CallingCodes.plist; path = Source/CallingCodes.plist; sourceTree = "<group>"; };
-		245E4ED01EA9C9110067AF5F /* ADCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ADCountry.swift; path = Source/ADCountry.swift; sourceTree = "<group>"; };
+		245E4ED01EA9C9110067AF5F /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Country.swift; path = Source/Country.swift; sourceTree = "<group>"; };
+		7776B3C62E019EC200CBF478 /* CountryPicker.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = CountryPicker.podspec; sourceTree = "<group>"; };
+		77F9A14D2E019D35007213BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		77F9A14E2E019D35007213BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		77F9A14F2E019D35007213BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77F9A1502E019D35007213BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		77F9A1522E019D35007213BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		77F9A1542E019D35007213BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,8 +43,9 @@
 		05B258331C54EA80002F01FA = {
 			isa = PBXGroup;
 			children = (
+				7776B3C62E019EC200CBF478 /* CountryPicker.podspec */,
+				77F9A1552E019D35007213BE /* Demo */,
 				05B2585F1C54EB4C002F01FA /* Source */,
-				05B2583E1C54EA80002F01FA /* Demo */,
 				05B2583D1C54EA80002F01FA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,41 +53,40 @@
 		05B2583D1C54EA80002F01FA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				05B2583C1C54EA80002F01FA /* ADCountryPicker.app */,
+				05B2583C1C54EA80002F01FA /* CountryPicker.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		05B2583E1C54EA80002F01FA /* Demo */ = {
-			isa = PBXGroup;
-			children = (
-				2453A6D71EADC0D400C81AB1 /* Main.storyboard */,
-				2453A6D41EADC0BA00C81AB1 /* LaunchScreen.storyboard */,
-				2453A6CB1EADC0A600C81AB1 /* Assets.xcassets */,
-				2453A6C51EADC09C00C81AB1 /* AppDelegate.swift */,
-				2453A6C61EADC09C00C81AB1 /* Info.plist */,
-				2453A6C71EADC09C00C81AB1 /* ViewController.swift */,
-			);
-			name = Demo;
-			path = MICountryPicker;
 			sourceTree = "<group>";
 		};
 		05B2585F1C54EB4C002F01FA /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				245E4ECE1EA9BF250067AF5F /* CallingCodes.plist */,
-				05B258641C54EC67002F01FA /* ADCountryPicker.swift */,
-				245E4ED01EA9C9110067AF5F /* ADCountry.swift */,
+				05B258641C54EC67002F01FA /* CountryPicker.swift */,
+				245E4ED01EA9C9110067AF5F /* Country.swift */,
 			);
 			name = Source;
+			sourceTree = "<group>";
+		};
+		77F9A1552E019D35007213BE /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				77F9A14D2E019D35007213BE /* AppDelegate.swift */,
+				77F9A14E2E019D35007213BE /* Assets.xcassets */,
+				77F9A14F2E019D35007213BE /* Info.plist */,
+				77F9A1512E019D35007213BE /* LaunchScreen.storyboard */,
+				77F9A1532E019D35007213BE /* Main.storyboard */,
+				77F9A1542E019D35007213BE /* ViewController.swift */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		05B2583B1C54EA80002F01FA /* ADCountryPicker */ = {
+		05B2583B1C54EA80002F01FA /* CountryPicker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 05B258591C54EA80002F01FA /* Build configuration list for PBXNativeTarget "ADCountryPicker" */;
+			buildConfigurationList = 05B258591C54EA80002F01FA /* Build configuration list for PBXNativeTarget "CountryPicker" */;
 			buildPhases = (
 				05B258381C54EA80002F01FA /* Sources */,
 				05B258391C54EA80002F01FA /* Frameworks */,
@@ -93,9 +94,9 @@
 			);
 			buildRules = (
 			);
-			name = ADCountryPicker;
+			name = CountryPicker;
 			productName = MICountryPicker;
-			productReference = 05B2583C1C54EA80002F01FA /* ADCountryPicker.app */;
+			productReference = 05B2583C1C54EA80002F01FA /* CountryPicker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +105,7 @@
 		05B258341C54EA80002F01FA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = AD;
+				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Amila Diman";
@@ -115,7 +116,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 05B258371C54EA80002F01FA /* Build configuration list for PBXProject "ADCountryPicker" */;
+			buildConfigurationList = 05B258371C54EA80002F01FA /* Build configuration list for PBXProject "CountryPicker" */;
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -129,7 +130,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				05B2583B1C54EA80002F01FA /* ADCountryPicker */,
+				05B2583B1C54EA80002F01FA /* CountryPicker */,
 			);
 		};
 /* End PBXProject section */
@@ -138,10 +139,10 @@
 		05B2583A1C54EA80002F01FA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
-				2453A6D61EADC0BA00C81AB1 /* LaunchScreen.storyboard in Resources */,
-				2453A6D91EADC0D400C81AB1 /* Main.storyboard in Resources */,
-				2453A6D11EADC0A600C81AB1 /* Assets.xcassets in Resources */,
-				245E4ECF1EA9BF250067AF5F /* CallingCodes.plist in Resources */,
+				7776B3C32E019E1600CBF478 /* LaunchScreen.storyboard in Resources */,
+				7776B3C12E019E0D00CBF478 /* Assets.xcassets in Resources */,
+				7776B3C42E019E1B00CBF478 /* Main.storyboard in Resources */,
+				7776B3C52E019E1F00CBF478 /* CallingCodes.plist in Resources */,
 			);
 		};
 /* End PBXResourcesBuildPhase section */
@@ -150,27 +151,27 @@
 		05B258381C54EA80002F01FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
-				2453A6C81EADC09C00C81AB1 /* AppDelegate.swift in Sources */,
-				05B258651C54EC67002F01FA /* ADCountryPicker.swift in Sources */,
-				2453A6CA1EADC09C00C81AB1 /* ViewController.swift in Sources */,
-				245E4ED11EA9C9110067AF5F /* ADCountry.swift in Sources */,
+				05B258651C54EC67002F01FA /* CountryPicker.swift in Sources */,
+				77F9A15A2E019D35007213BE /* AppDelegate.swift in Sources */,
+				77F9A15B2E019D35007213BE /* ViewController.swift in Sources */,
+				245E4ED11EA9C9110067AF5F /* Country.swift in Sources */,
 			);
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2453A6D41EADC0BA00C81AB1 /* LaunchScreen.storyboard */ = {
+		77F9A1512E019D35007213BE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2453A6D51EADC0BA00C81AB1 /* Base */,
+				77F9A1502E019D35007213BE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		2453A6D71EADC0D400C81AB1 /* Main.storyboard */ = {
+		77F9A1532E019D35007213BE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2453A6D81EADC0D400C81AB1 /* Base */,
+				77F9A1522E019D35007213BE /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -178,7 +179,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		05B258571C54EA80002F01FA /* Debug configuration for PBXProject "ADCountryPicker" */ = {
+		05B258571C54EA80002F01FA /* Debug configuration for PBXProject "CountryPicker" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -234,7 +235,7 @@
 			};
 			name = Debug;
 		};
-		05B258581C54EA80002F01FA /* Release configuration for PBXProject "ADCountryPicker" */ = {
+		05B258581C54EA80002F01FA /* Release configuration for PBXProject "CountryPicker" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -285,31 +286,31 @@
 			};
 			name = Release;
 		};
-		05B2585A1C54EA80002F01FA /* Debug configuration for PBXNativeTarget "ADCountryPicker" */ = {
+		05B2585A1C54EA80002F01FA /* Debug configuration for PBXNativeTarget "CountryPicker" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = ADCountryPicker/Info.plist;
+				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.diman.ADCountryPicker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diman.CountryPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
-		05B2585B1C54EA80002F01FA /* Release configuration for PBXNativeTarget "ADCountryPicker" */ = {
+		05B2585B1C54EA80002F01FA /* Release configuration for PBXNativeTarget "CountryPicker" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = ADCountryPicker/Info.plist;
+				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.diman.ADCountryPicker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diman.CountryPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
@@ -318,19 +319,19 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		05B258371C54EA80002F01FA /* Build configuration list for PBXProject "ADCountryPicker" */ = {
+		05B258371C54EA80002F01FA /* Build configuration list for PBXProject "CountryPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				05B258571C54EA80002F01FA /* Debug configuration for PBXProject "ADCountryPicker" */,
-				05B258581C54EA80002F01FA /* Release configuration for PBXProject "ADCountryPicker" */,
+				05B258571C54EA80002F01FA /* Debug configuration for PBXProject "CountryPicker" */,
+				05B258581C54EA80002F01FA /* Release configuration for PBXProject "CountryPicker" */,
 			);
 			defaultConfigurationName = Release;
 		};
-		05B258591C54EA80002F01FA /* Build configuration list for PBXNativeTarget "ADCountryPicker" */ = {
+		05B258591C54EA80002F01FA /* Build configuration list for PBXNativeTarget "CountryPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				05B2585A1C54EA80002F01FA /* Debug configuration for PBXNativeTarget "ADCountryPicker" */,
-				05B2585B1C54EA80002F01FA /* Release configuration for PBXNativeTarget "ADCountryPicker" */,
+				05B2585A1C54EA80002F01FA /* Debug configuration for PBXNativeTarget "CountryPicker" */,
+				05B2585B1C54EA80002F01FA /* Release configuration for PBXNativeTarget "CountryPicker" */,
 			);
 			defaultConfigurationName = Release;
 		};

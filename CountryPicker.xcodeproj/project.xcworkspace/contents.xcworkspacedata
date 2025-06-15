@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/amila/Downloads/Compressed/MICountryPicker-master/ADCountryPicker.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

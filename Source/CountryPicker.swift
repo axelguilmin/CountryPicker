@@ -1,6 +1,6 @@
 //
-//  ADCountryPicker.swift
-//  ADCountryPicker
+//  CountryPicker.swift
+//  CountryPicker
 //
 //  Created by Ibrahim, Mustafa on 1/24/16.
 //  Copyright © 2016 Mustafa Ibrahim. All rights reserved.
@@ -10,37 +10,37 @@ import UIKit
 
 struct Section {
 
-    var countries: [ADCountry] = []
+    var countries: [Country] = []
 
-    mutating func addCountry(_ country: ADCountry) {
+    mutating func addCountry(_ country: Country) {
         countries.append(country)
     }
 }
 
-@objc public protocol ADCountryPickerDelegate: class {
+@objc public protocol CountryPickerDelegate: class {
 
-    @objc optional func countryPicker(_ picker: ADCountryPicker,
+    @objc optional func countryPicker(_ picker: CountryPicker,
                                       didSelectCountryWithName name: String,
                                       code: String)
 
-    func countryPicker(_ picker: ADCountryPicker,
+    func countryPicker(_ picker: CountryPicker,
                        didSelectCountryWithName name: String,
                        code: String,
                        dialCode: String)
 }
 
-open class ADCountryPicker: UITableViewController {
+open class CountryPicker: UITableViewController {
 
     fileprivate lazy var CallingCodes = { () -> [[String: String]] in
-        let resourceBundle = Bundle(for: ADCountryPicker.classForCoder())
+        let resourceBundle = Bundle(for: CountryPicker.classForCoder())
         guard let path = resourceBundle.path(forResource: "CallingCodes", ofType: "plist") else { return [] }
         return NSArray(contentsOfFile: path) as! [[String: String]]
     }()
     fileprivate var searchController: UISearchController!
-    fileprivate var filteredList = [ADCountry]()
-    fileprivate var unsortedCountries : [ADCountry] {
+    fileprivate var filteredList = [Country]()
+    fileprivate var unsortedCountries : [Country] {
         let locale = Locale.current as NSLocale
-        var unsortedCountries = [ADCountry]()
+        var unsortedCountries = [Country]()
 
         for countryCode in countriesCodes {
             guard let displayName = locale.displayName(forKey: .countryCode, value: countryCode) else {
@@ -49,12 +49,12 @@ open class ADCountryPicker: UITableViewController {
             }
 
             let countryData = CallingCodes.first { $0["code"] == countryCode }
-            let country: ADCountry
+            let country: Country
 
             if let dialCode = countryData?["dial_code"] {
-                country = ADCountry(name: displayName, code: countryCode, dialCode: dialCode)
+                country = Country(name: displayName, code: countryCode, dialCode: dialCode)
             } else {
-                country = ADCountry(name: displayName, code: countryCode)
+                country = Country(name: displayName, code: countryCode)
             }
             unsortedCountries.append(country)
         }
@@ -69,9 +69,9 @@ open class ADCountryPicker: UITableViewController {
             return _sections!
         }
 
-        let countries: [ADCountry] = unsortedCountries.map { country in
-            let country = ADCountry(name: country.name, code: country.code, dialCode: country.dialCode)
-            country.section = collation.section(for: country, collationStringSelector: #selector(getter: ADCountry.name))
+        let countries: [Country] = unsortedCountries.map { country in
+            let country = Country(name: country.name, code: country.code, dialCode: country.dialCode)
+            country.section = collation.section(for: country, collationStringSelector: #selector(getter: Country.name))
             return country
         }
 
@@ -92,7 +92,7 @@ open class ADCountryPicker: UITableViewController {
         // Sort each section
         for section in sections {
             var s = section
-            s.countries = collation.sortedArray(from: section.countries, collationStringSelector: #selector(getter: ADCountry.name)) as! [ADCountry]
+            s.countries = collation.sortedArray(from: section.countries, collationStringSelector: #selector(getter: Country.name)) as! [Country]
         }
 
         // Adds current location
@@ -105,12 +105,12 @@ open class ADCountryPicker: UITableViewController {
         let locale = Locale.current
         let displayName = (locale as NSLocale).displayName(forKey: NSLocale.Key.countryCode, value: countryCode)
         let countryData = CallingCodes.filter { $0["code"] == countryCode }
-        let country: ADCountry
+        let country: Country
 
         if countryData.count > 0, let dialCode = countryData[0]["dial_code"] {
-            country = ADCountry(name: displayName!, code: countryCode, dialCode: dialCode)
+            country = Country(name: displayName!, code: countryCode, dialCode: dialCode)
         } else {
-            country = ADCountry(name: displayName!, code: countryCode)
+            country = Country(name: displayName!, code: countryCode)
         }
         country.section = 0
         sections[0].addCountry(country)
@@ -122,7 +122,7 @@ open class ADCountryPicker: UITableViewController {
 
     fileprivate let collation = UILocalizedIndexedCollation.current() as UILocalizedIndexedCollation
 
-    open weak var delegate: ADCountryPickerDelegate?
+    open weak var delegate: CountryPickerDelegate?
 
     /// Closure which returns country name and ISO code
     open var didSelectCountryClosure: ((String, String) -> ())?
@@ -227,7 +227,7 @@ open class ADCountryPicker: UITableViewController {
         }
     }
 
-    fileprivate func filter(_ searchText: String) -> [ADCountry] {
+    fileprivate func filter(_ searchText: String) -> [Country] {
         filteredList.removeAll()
 
         sections.forEach { section in
@@ -246,7 +246,7 @@ open class ADCountryPicker: UITableViewController {
         return filteredList
     }
 
-    fileprivate func getCountry(_ code: String) -> ADCountry? {
+    fileprivate func getCountry(_ code: String) -> Country? {
         unsortedCountries.first {
             let result = $0.code.compare(code,
                                          options: [.caseInsensitive, .diacriticInsensitive],
@@ -295,7 +295,7 @@ open class ADCountryPicker: UITableViewController {
 
 // MARK: - Table view data source
 
-extension ADCountryPicker {
+extension CountryPicker {
 
     override open func numberOfSections(in tableView: UITableView) -> Int {
         if searchController.searchBar.text!.count > 0 {
@@ -320,7 +320,7 @@ extension ADCountryPicker {
 
         let cell: UITableViewCell! = tempCell
 
-        let country: ADCountry!
+        let country: Country!
         if searchController.searchBar.text!.count > 0 {
             country = filteredList[(indexPath as NSIndexPath).row]
         } else {
@@ -392,11 +392,11 @@ extension ADCountryPicker {
 
 // MARK: - Table view delegate
 
-extension ADCountryPicker {
+extension CountryPicker {
 
     override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let country: ADCountry!
+        let country: Country!
         if searchController.searchBar.text!.count > 0 {
             country = filteredList[(indexPath as NSIndexPath).row]
         } else {
@@ -411,7 +411,7 @@ extension ADCountryPicker {
 
 // MARK: - UISearchDisplayDelegate
 
-extension ADCountryPicker: UISearchResultsUpdating {
+extension CountryPicker: UISearchResultsUpdating {
 
     public func updateSearchResults(for searchController: UISearchController) {
         _ = filter(searchController.searchBar.text!)
