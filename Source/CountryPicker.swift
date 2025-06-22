@@ -216,6 +216,12 @@ open class CountryPicker: UITableViewController {
         tableView.separatorColor = separatorColor
     }
 
+    override open func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationItem.title = pickerTitle
+    }
+
     // MARK: Methods
 
     @objc private func dismissView() {
