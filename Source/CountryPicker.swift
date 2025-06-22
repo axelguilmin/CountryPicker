@@ -36,10 +36,10 @@ open class CountryPicker: UITableViewController {
         guard let path = resourceBundle.path(forResource: "CallingCodes", ofType: "plist") else { return [] }
         return NSArray(contentsOfFile: path) as! [[String: String]]
     }()
+    fileprivate let locale = Locale.current as NSLocale
     fileprivate var searchController: UISearchController!
     fileprivate var filteredList = [Country]()
     fileprivate var unsortedCountries : [Country] {
-        let locale = Locale.current as NSLocale
         var unsortedCountries = [Country]()
 
         for countryCode in countriesCodes {
@@ -64,9 +64,8 @@ open class CountryPicker: UITableViewController {
 
     fileprivate var _sections: [Section]?
     fileprivate var sections: [Section] {
-
-        if _sections != nil {
-            return _sections!
+        if let cached = _sections {
+            return cached
         }
 
         let countries: [Country] = unsortedCountries.map { country in
@@ -96,24 +95,26 @@ open class CountryPicker: UITableViewController {
         }
 
         // Adds current location
-        var countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as? String ?? defaultCountryCode
+        var countryCode = locale.object(forKey: .countryCode) as? String ?? defaultCountryCode
         if forceDefaultCountryCode {
             countryCode = defaultCountryCode
         }
 
         sections.insert(Section(), at: 0)
-        let locale = Locale.current
-        let displayName = (locale as NSLocale).displayName(forKey: NSLocale.Key.countryCode, value: countryCode)
-        let countryData = CallingCodes.filter { $0["code"] == countryCode }
-        let country: Country
 
-        if countryData.count > 0, let dialCode = countryData[0]["dial_code"] {
-            country = Country(name: displayName!, code: countryCode, dialCode: dialCode)
-        } else {
-            country = Country(name: displayName!, code: countryCode)
+        let displayName = locale.displayName(forKey: .countryCode, value: countryCode)
+        let callingCode = CallingCodes.first(where: { $0["code"] == countryCode })?["dial_code"]
+        let country: Country
+        if let displayName, countriesCodes.contains(countryCode) {
+            if let callingCode {
+                country = Country(name: displayName, code: countryCode, dialCode: callingCode)
+            } else {
+                country = Country(name: displayName, code: countryCode)
+            }
+
+            country.section = 0
+            sections[0].addCountry(country)
         }
-        country.section = 0
-        sections[0].addCountry(country)
 
         _sections = sections
 
@@ -131,7 +132,12 @@ open class CountryPicker: UITableViewController {
     open var didSelectCountryWithCallingCodeClosure: ((String, String, String) -> ())?
 
     /// Countries to show, defaults to `Locale.isoRegionCodes`
-    open var countriesCodes: [String] = Locale.isoRegionCodes
+    open var countriesCodes: [String] = Locale.isoRegionCodes {
+        didSet {
+            // Clear sections cache
+            _sections = nil
+        }
+    }
 
     /// Flag to indicate if calling codes should be shown next to the country name. Defaults to false.
     open var showCallingCodes = false
