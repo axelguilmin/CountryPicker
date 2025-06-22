@@ -154,6 +154,9 @@ open class CountryPicker: UITableViewController {
     /// The background color of the alphabet scrollar. Default to clear color
     open var alphabetScrollBarBackgroundColor = UIColor.clear
 
+    /// The color of the separator between sections. Defaults to gray
+    open var separatorColor = UIColor.gray
+
     /// The tint color of the close icon in presented pickers. Defaults to black
     open var closeButtonTintColor = UIColor.black
 
@@ -166,8 +169,11 @@ open class CountryPicker: UITableViewController {
     /// Flag to indicate if the navigation bar should be hidden when search becomes active. Defaults to true
     open var hidesNavigationBarWhenPresentingSearch = true
 
-    /// The background color of the searchbar. Defaults to lightGray
-    open var searchBarBackgroundColor = UIColor.lightGray
+    /// The background color of the searchbar. Defaults to `nil`
+    open var searchBarBackgroundColor: UIColor? = nil
+
+    /// The style of the searchbar. Defaults to `.default`
+    open var searchBarStyle = UISearchBar.Style.default
 
     /// The SF symbol image name of the close icon. Defaults to `xmark`
     open var closeIconImageName = "xmark"
@@ -199,13 +205,11 @@ open class CountryPicker: UITableViewController {
             navigationItem.leftBarButtonItem = closeButton
         }
 
+        tableView.backgroundView = UIView() // https://stackoverflow.com/a/36270436/1327557
         tableView.sectionIndexColor = alphabetScrollBarTintColor
         tableView.sectionIndexBackgroundColor = alphabetScrollBarBackgroundColor
         tableView.rowHeight = max(font.lineHeight, fontFlag.lineHeight)
-        tableView.separatorColor = UIColor(red: (222)/(255.0),
-                                           green: (222)/(255.0),
-                                           blue: (222)/(255.0),
-                                           alpha: 1)
+        tableView.separatorColor = separatorColor
     }
 
     // MARK: Methods
@@ -218,11 +222,9 @@ open class CountryPicker: UITableViewController {
         if tableView.tableHeaderView == nil {
             searchController = UISearchController(searchResultsController: nil)
             searchController.searchResultsUpdater = self
-            searchController.dimsBackgroundDuringPresentation = false
             searchController.hidesNavigationBarDuringPresentation = hidesNavigationBarWhenPresentingSearch
-            searchController.searchBar.searchBarStyle = .prominent
+            searchController.searchBar.searchBarStyle = searchBarStyle
             searchController.searchBar.barTintColor = searchBarBackgroundColor
-            searchController.searchBar.showsCancelButton = false
             tableView.tableHeaderView = searchController.searchBar
         }
     }
