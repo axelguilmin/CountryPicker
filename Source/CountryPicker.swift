@@ -85,9 +85,6 @@ open class CountryPicker: UITableViewController {
             sections[country.section!].addCountry(country)
         }
 
-        // Remove empty sections
-        sections.removeAll { $0.countries.isEmpty }
-
         // Sort each section
         for section in sections {
             var s = section
@@ -215,6 +212,7 @@ open class CountryPicker: UITableViewController {
         tableView.sectionIndexColor = alphabetScrollBarTintColor
         tableView.sectionIndexBackgroundColor = alphabetScrollBarBackgroundColor
         tableView.rowHeight = max(font.lineHeight, fontFlag.lineHeight)
+        tableView.sectionFooterHeight = 0
         tableView.separatorColor = separatorColor
     }
 
@@ -365,28 +363,38 @@ extension CountryPicker {
     }
 
     override open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if !sections[section].countries.isEmpty {
-            if searchController.searchBar.text!.count > 0 {
-                if let name = filteredList.first?.name {
-                    let index = name.index(name.startIndex, offsetBy: 0)
-                    return String(describing: name[index])
-                }
-
-                return ""
-            }
-
-            if section == 0 {
-                return "Current Location"
-            }
-
-            return collation.sectionTitles[section-1] as String
+        guard !sections[section].countries.isEmpty else {
+            return nil
         }
 
-        return ""
+        if searchController.searchBar.text!.count > 0 {
+            if let name = filteredList.first?.name {
+                let index = name.index(name.startIndex, offsetBy: 0)
+                return String(describing: name[index])
+            }
+
+            return ""
+        }
+
+        if section == 0 {
+            return "Current Location"
+        }
+
+        return collation.sectionTitles[section-1] as String
     }
 
     override open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        section == 0 ? 50 : 26
+        if sections[section].countries.isEmpty {
+            return 0 // Hide header
+        }
+        return UITableView.automaticDimension
+    }
+
+    open override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if sections[section].countries.isEmpty {
+            return nil // Hide header
+        }
+        return super.tableView(tableView, viewForHeaderInSection: section)
     }
 
     override open func sectionIndexTitles(for tableView: UITableView) -> [String]? {
