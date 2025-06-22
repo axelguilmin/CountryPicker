@@ -39,8 +39,8 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: CountryPickerDelegate {
-    
+extension ViewController: @MainActor CountryPickerDelegate {
+
     func countryPicker(_ picker: CountryPicker, didSelectCountryWithName name: String, code: String, dialCode: String) {
         _ = picker.navigationController?.popToRootViewController(animated: true)
         self.dismiss(animated: true, completion: nil)

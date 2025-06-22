@@ -17,7 +17,7 @@ struct Section {
     }
 }
 
-@objc public protocol CountryPickerDelegate: class {
+@objc public protocol CountryPickerDelegate: AnyObject {
 
     @objc optional func countryPicker(_ picker: CountryPicker,
                                       didSelectCountryWithName name: String,
