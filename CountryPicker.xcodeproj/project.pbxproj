@@ -22,6 +22,7 @@
 		05B258641C54EC67002F01FA /* CountryPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountryPicker.swift; path = Source/CountryPicker.swift; sourceTree = "<group>"; };
 		245E4ECE1EA9BF250067AF5F /* CallingCodes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = CallingCodes.plist; path = Source/CallingCodes.plist; sourceTree = "<group>"; };
 		245E4ED01EA9C9110067AF5F /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Country.swift; path = Source/Country.swift; sourceTree = "<group>"; };
+		771AD3A22E3A254900CFC318 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7776B3C62E019EC200CBF478 /* CountryPicker.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = CountryPicker.podspec; sourceTree = "<group>"; };
 		77F9A14D2E019D35007213BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77F9A14E2E019D35007213BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 			isa = PBXGroup;
 			children = (
 				7776B3C62E019EC200CBF478 /* CountryPicker.podspec */,
+				771AD3A22E3A254900CFC318 /* README.md */,
 				77F9A1552E019D35007213BE /* Demo */,
 				05B2585F1C54EB4C002F01FA /* Source */,
 				05B2583D1C54EA80002F01FA /* Products */,
