@@ -108,7 +108,7 @@
 				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 1010;
-				ORGANIZATIONNAME = "Amila Diman";
+				ORGANIZATIONNAME = "Axel Guilmin";
 				TargetAttributes = {
 					05B2583B1C54EA80002F01FA = {
 						CreatedOnToolsVersion = 7.2;
@@ -295,7 +295,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.diman.CountryPicker;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.axelguilmin.CountryPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 6.2;
 			};
@@ -310,7 +310,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.diman.CountryPicker;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.axelguilmin.CountryPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 6.2;
 			};

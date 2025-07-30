@@ -145,6 +145,9 @@ open class CountryPicker: UITableViewController {
     /// The nav bar title to show on picker view
     open var pickerTitle = "Select a Country"
 
+    /// The section title to show for the users current location
+    open var currentLocationTitle = "Current Location"
+
     /// The default current location, if region cannot be determined. Defaults to US
     open var defaultCountryCode = "US"
 
@@ -383,7 +386,7 @@ extension CountryPicker {
         }
 
         if section == 0 {
-            return "Current Location"
+            return currentLocationTitle
         }
 
         return collation.sectionTitles[section-1] as String
